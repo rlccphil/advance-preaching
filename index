@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LDS 670 – Advance Preaching | IGSL</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1B2A45;
+      --gold: #B8882A;
+      --gold-light: #F5E8C8;
+      --cream: #FAF8F4;
+      --ink: #1E1E1E;
+      --muted: #5A5A5A;
+      --border: #D6CEBC;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 48px 32px 40px;
+      text-align: center;
+    }
+
+    .school-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .course-title {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .course-sub {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 28px;
+    }
+
+    .meta-bar {
+      display: inline-flex;
+      gap: 32px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px;
+      padding: 14px 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .meta-item { text-align: left; }
+    .meta-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+    }
+    .meta-value { font-size: 14px; color: rgba(255,255,255,0.9); }
+
+    /* ── LAYOUT ── */
+    .page-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-top: 52px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--gold);
+      padding: 3px 10px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    /* ── OVERVIEW ── */
+    .overview-text {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.08rem;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    /* ── OBJECTIVES ── */
+    .obj-group { margin-bottom: 24px; }
+    .obj-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .obj-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .obj-list li {
+      padding-left: 20px;
+      position: relative;
+      font-size: 14.5px;
+      color: #2a2a2a;
+    }
+    .obj-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ── READINGS ── */
+    .reading-block { margin-bottom: 20px; }
+    .reading-type {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .reading-block p { margin-bottom: 6px; font-size: 14.5px; }
+    .reading-block ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .reading-block li {
+      padding-left: 18px;
+      position: relative;
+      font-size: 14px;
+      color: #333;
+    }
+    .reading-block li::before {
+      content: '·';
+      position: absolute;
+      left: 5px;
+      color: var(--gold);
+      font-size: 1.2em;
+      line-height: 1.5;
+    }
+
+    /* ── REQUIREMENTS ── */
+    .req-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .req-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .req-card-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+    .req-weight {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      background: var(--gold-light);
+      padding: 2px 10px;
+      border-radius: 20px;
+    }
+    .req-body { font-size: 14px; color: #333; margin-bottom: 10px; }
+    .req-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .req-list li {
+      font-size: 14px;
+      padding-left: 18px;
+      position: relative;
+      color: #444;
+    }
+    .req-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 12px;
+      top: 2px;
+    }
+
+    /* ── GRADING TABLE ── */
+    .grade-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .grade-table th {
+      background: var(--navy);
+      color: var(--white);
+      text-align: left;
+      padding: 11px 16px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .grade-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      color: #2a2a2a;
+    }
+    .grade-table tr:last-child td {
+      background: var(--gold-light);
+      font-weight: 700;
+      color: var(--navy);
+      border-bottom: none;
+    }
+    .grade-table tr:nth-child(even) td { background: #f5f2ec; }
+    .grade-table tr:last-child td { background: var(--gold-light); }
+    .grade-table .weight { text-align: right; font-variant-numeric: tabular-nums; }
+
+    /* ── RUBRICS ── */
+    .rubric-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .rubric-card-head {
+      background: var(--navy);
+      color: var(--white);
+      padding: 11px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .rubric-card-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+    .rubric-total {
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .rubric-items {
+      padding: 12px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .rubric-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13.5px;
+      color: #333;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed var(--border);
+    }
+    .rubric-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .rubric-pts {
+      font-weight: 600;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    /* ── COURSE OUTLINE ── */
+    .module {
+      margin-bottom: 28px;
+    }
+    .module-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--navy);
+      padding: 7px 16px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .session-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .session-item {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      font-size: 14px;
+      padding: 8px 14px;
+      border-radius: 3px;
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+    .session-item.lab {
+      background: var(--gold-light);
+      border-color: var(--gold);
+    }
+    .session-num {
+      font-weight: 700;
+      color: var(--gold);
+      white-space: nowrap;
+      font-size: 12px;
+      min-width: 70px;
+    }
+    .session-title { color: #2a2a2a; }
+    .session-note {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      .meta-bar { gap: 16px; }
+      .req-card-header { flex-direction: column; }
+      .rubric-card-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <p class="school-name">International Graduate School of Leadership</p>
+  <h1 class="course-title">LDS 670 – Advance Preaching</h1>
+  <p class="course-sub">Course Syllabus</p>
+  <div class="meta-bar">
+    <div class="meta-item">
+      <span class="meta-label">Professor</span>
+      <span class="meta-value">Dr. Bong Baylon, DMin</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Schedule</span>
+      <span class="meta-value">Wednesdays &amp; Fridays, 10:30–11:50 AM</span>
+    </div>
+  </div>
+</header>
+
+<main class="page-body">
+
+  <!-- OVERVIEW -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-tag">Overview</span>
+      <h2 class="section-title">Course Description</h2>
+    </div>
+    <p class="overview-text">
+      IGSL students are trained to be servant-steward leaders who are biblically rooted Christian thinkers and contextually reflective practitioners for the purpose of helping fulfill the Great Commission. They are leaders and Bible teachers who need to continuously grow in their knowledge of Scripture, Christ-like character, and leadership skills.
+    </p>
+    <br/>
+    <p class="overview-text">
+      This course builds on the exegetical and homiletical foundations established in previous preaching courses. Students will learn advanced approaches to preaching with particular emphasis on preaching the parables of Jesus and persuasive preaching on contemporary issues. The course seeks to develop both biblical faithfulness and rhetorical effectiveness so that students can communicate God's truth in ways that lead to transformation.
+    </p>
+  </section>
+
+  <!-- OBJECTIVES -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-tag">Objectives</span>
+      <h2 class="section-title">Course Objectives</h2>
+    </div>
+    <p style="margin-bottom:20px;font-size:14.5px;color:var(--muted);">By the end of this course, students will have demonstrated growth in the following areas:</p>
+
+    <div class="obj-group">
+      <p class="obj-group-title">Knowledge</p>
+      <ul class="obj-list">
+        <li>Analyzed audiences and planned effective preaching strategies appropriate to their needs and contexts.</li>
+        <li>Identified principles for making biblical messages relevant to contemporary audiences.</li>
+        <li>Applied sound exegetical and homiletical principles in preaching parables.</li>
+        <li>Explained the dynamics of persuasion and their application to preaching.</li>
+        <li>Evaluated contemporary issues from a biblical perspective and developed persuasive sermons addressing them.</li>
+      </ul>
+    </div>
+    <div class="obj-group">
+      <p class="obj-group-title">Character</p>
+      <ul class="obj-list">
+        <li>Demonstrated commitment to careful interpretation and communication of Scripture.</li>
+        <li>Demonstrated integrity as communicators who seek to model the truth they preach.</li>
+        <li>Demonstrated commitment to relevant preaching through thoughtful audience analysis.</li>
+        <li>Demonstrated commitment to preaching for life transformation rather than merely information transfer.</li>
+      </ul>
+    </div>
+    <div class="obj-group">
+      <p class="obj-group-title">Skills</p>
+      <ul class="obj-list">
+        <li>Prepared and delivered biblically faithful sermons on the parables of Jesus.</li>
+        <li>Prepared and delivered persuasive sermons addressing contemporary issues from a biblical perspective.</li>
+        <li>Evaluated sermons using established criteria for parable and persuasive preaching.</li>
+        <li>Demonstrated increased confidence and effectiveness in sermon delivery.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- READINGS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-tag">Readings</span>
+      <h2 class="section-title">Course Readings</h2>
+    </div>
+    <div class="reading-block">
+      <p class="reading-type">Required</p>
+      <p>Eighteen assigned articles available through Canvas. Students are expected to read all assigned articles before the scheduled class session. Approximately two articles will be assigned for each instructional week.</p>
+    </div>
+    <div class="reading-block">
+      <p class="reading-type">Suggested</p>
+      <ul>
+        <li>Blomberg, Craig. <em>Preaching the Parables: From Responsible Interpretation to Powerful Proclamation</em>.</li>
+        <li>Chapell, Bryan. <em>Christ-Centered Preaching</em>.</li>
+        <li>Keller, Timothy. <em>Preaching: Communicating Faith in an Age of Skepticism</em>.</li>
+        <li>Stanley, Andy and Lane Jones. <em>Communicating for a Change</em>.</li>
+        <li>Willhite, Keith. <em>Preaching with Relevance without Dumbing Down</em>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- REQUIREMENTS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-tag">Requirements</span>
+      <h2 class="section-title">Course Requirements</h2>
+    </div>
+
+    <div class="req-card">
+      <div class="req-card-header">
+        <span class="req-card-title">A. Reading Reflections</span>
+        <span class="req-weight">20%</span>
+      </div>
+      <p class="req-body">Students will read eighteen assigned articles and submit nine reading reflections through Canvas (approximately one reflection for every two assigned articles). Each reflection should be approximately 300–500 words and address the following questions:</p>
+      <ul class="req-list">
+        <li>What is the most significant insight you gained from the readings?</li>
+        <li>What idea challenged, confirmed, or expanded your understanding of preaching?</li>
+        <li>How might these insights influence your own preaching ministry?</li>
+      </ul>
+      <p style="margin-top:10px;font-size:13px;color:var(--muted);font-style:italic;">Reflections must be submitted before class.</p>
+    </div>
+
+    <div class="req-card">
+      <div class="req-card-header">
+        <span class="req-card-title">B. Parables Preaching Project</span>
+        <span class="req-weight">35%</span>
+      </div>
+      <p class="req-body">Each student will prepare and preach a sermon based on one of the parables of Jesus. Students will preach a 20–25 minute sermon during the Parable Preaching Lab.</p>
+      <ul class="req-list">
+        <li>Parables Exegetical Worksheet</li>
+        <li>Parables Homiletical Worksheet</li>
+        <li>Parables Preaching Outline Worksheet</li>
+        <li>Parable Sermon Delivery</li>
+      </ul>
+    </div>
+
+    <div class="req-card">
+      <div class="req-card-header">
+        <span class="req-card-title">C. Persuasive Preaching Project</span>
+        <span class="req-weight">35%</span>
+      </div>
+      <p class="req-body">Each student will prepare and preach a persuasive sermon addressing a contemporary issue from a biblical perspective. Students will preach a 20–25 minute sermon during the Persuasive Preaching Lab.</p>
+      <ul class="req-list">
+        <li>Persuasive Issue Analysis Worksheet</li>
+        <li>Persuasive Biblical and Homiletical Worksheet</li>
+        <li>Persuasive Sermon Outline Worksheet</li>
+        <li>Persuasive Sermon Delivery</li>
+      </ul>
+    </div>
+
+    <div class="req-card">
+      <div class="req-card-header">
+        <span class="req-card-title">D. Participation and Sermon Evaluations</span>
+        <span class="req-weight">10%</span>
+      </div>
+      <p class="req-body">Students are expected to participate actively in discussions, workshops, and preaching labs. Students will complete peer evaluations and self-evaluations for both sermons.</p>
+    </div>
+  </section>
+
+  <!-- GRADING -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-tag">Grading</span>
+      <h2 class="section-title">Course Grading</h2>
+    </div>
+    <table class="grade-table">
+      <thead>
+        <tr>
+          <th>Assessment Component</th>
+          <th class="weight">Weight</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Reading Reflections (9)</td><td class="weight">20%</td></tr>
+        <tr><td>Parables Exegetical Worksheet</td><td class="weight">5%</td></tr>
+        <tr><td>Parables Homiletical Worksheet</td><td class="weight">5%</td></tr>
+        <tr><td>Parables Preaching Outline Worksheet</td><td class="weight">5%</td></tr>
+        <tr><td>Parable Sermon Delivery</td><td class="weight">20%</td></tr>
+        <tr><td>Persuasive Issue Analysis Worksheet</td><td class="weight">5%</td></tr>
+        <tr><td>Persuasive Biblical and Homiletical Worksheet</td><td class="weight">5%</td></tr>
+        <tr><td>Persuasive Sermon Outline Worksheet</td><td class="weight">5%</td></tr>
+        <tr><td>Persuasive Sermon Delivery</td><td class="weight">20%</td></tr>
+        <tr><td>Participation and Sermon Evaluations</td><td class="weight">10%</td></tr>
+        <tr><td><strong>TOTAL</strong></td><td class="weight"><strong>100%</strong></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- RUBRICS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-tag">Rubrics</span>
+      <h2 class="section-title">Assessment Rubrics</h2>
+    </div>
+
+    <div class="rubric-card">
+      <div class="rubric-card-head">
+        <span class="rubric-card-name">A. Reading Reflections (20%)</span>
+        <span class="rubric-total">10 pts each</span>
+      </div>
+      <div class="rubric-items">
+        <div class="rubric-item"><span>Understanding of Readings</span><span class="rubric-pts">4 pts</span></div>
+        <div class="rubric-item"><span>Critical Interaction with Ideas</span><span class="rubric-pts">3 pts</span></div>
+        <div class="rubric-item"><span>Ministry Application</span><span class="rubric-pts">2 pts</span></div>
+        <div class="rubric-item"><span>Writing Quality and Clarity</span><span class="rubric-pts">1 pt</span></div>
+      </div>
+    </div>
+
+    <div class="rubric-card">
+      <div class="rubric-card-head">
+        <span class="rubric-card-name">B. Parables Exegetical Worksheet (5%)</span>
+        <span class="rubric-total">25 pts total</span>
+      </div>
+      <div class="rubric-items">
+        <div class="rubric-item"><span>Exegetical Accuracy</span><span class="rubric-pts">10 pts</span></div>
+        <div class="rubric-item"><span>Interpretation of the Parable</span><span class="rubric-pts">5 pts</span></div>
+        <div class="rubric-item"><span>Identification of the Main Idea</span><span class="rubric-pts">5 pts</span></div>
+        <div class="rubric-item"><span>Completeness and Accuracy of Responses</span><span class="rubric-pts">5 pts</span></div>
+      </div>
+    </div>
+
+    <div class="rubric-card">
+      <div class="rubric-card-head">
+        <span class="rubric-card-name">C. Parables Homiletical Worksheet (5%)</span>
+        <span class="rubric-total">25 pts total</span>
+      </div>
+      <div class="rubric-items">
+        <div class="rubric-item"><span>Sermon Structure and Organization</span><span class="rubric-pts">10 pts</span></div>
+        <div class="rubric-item"><span>Development of the Main Idea</span><span class="rubric-pts">5 pts</span></div>
+        <div class="rubric-item"><span>Application Strategy</span><span class="rubric-pts">5 pts</span></div>
+        <div class="rubric-item"><span>Completeness and Accuracy of Responses</span><span class="rubric-pts">5 pts</span></div>
+      </div>
+    </div>
+
+    <div class="rubric-card">
+      <div class="rubric-card-head">
+        <span class="rubric-card-name">D. Parables Preaching Outline Worksheet (5%)</span>
+        <span class="rubric-total">25 pts total</span>
+      </div>
+      <div class="rubric-items">
+        <div class="rubric-item"><span>Big Idea and Purpose</span><span class="rubric-pts">5 pts</span></div>
+        <div class="rubric-item"><span>Organization and Flow</span><span class="rubric-pts">10 pts</span></div>
+        <div class="rubric-item"><span>Development and Support</span><span class="rubric-pts">5 pts</span></div>
+        <div class="rubric-item"><span>Application Strategy</span><span class="rubric-pts">5 pts</span></div>
+      </div>
+    </div>
+
+    <div class="rubric-card">
+      <div class="rubric-card-head">
+        <span class="rubric-card-name">E. Parable Sermon Delivery (20%)</span>
+        <span class="rubric-total">100 pts total</span>
+      </div>
+      <div class="rubric-items">
+        <div class="rubric-item"><span>Faithfulness to the Biblical Text</span><span class="rubric-pts">20 pts</span></div>
+        <div class="rubric-item"><span>Accuracy of Interpretation</span><span class="rubric-pts">15 pts</span></div>
+        <div class="rubric-item"><span>Clarity of Main Idea</span><span class="rubric-pts">15 pts</span></div>
+        <div class="rubric-item"><span>Organization and Structure</span><span class="rubric-pts">10 pts</span></div>
+        <div class="rubric-item"><span>Relevance and Application</span><span class="rubric-pts">15 pts</span></div>
+        <div class="rubric-item"><span>Delivery and Communication Skills</span><span class="rubric-pts">15 pts</span></div>
+        <div class="rubric-item"><span>Audience Engagement</span><span class="rubric-pts">10 pts</span></div>
+      </div>
+    </div>
+
+    <div class="rubric-card">
+      <div class="rubric-card-head">
+        <span class="rubric-card-name">F. Persuasive Issue Analysis Worksheet (5%)</span>
+        <span class="rubric-total">25 pts total</span>
+      </div>
+      <div class="rubric-items">
+        <div class="rubric-item"><span>Audience Analysis</span><span class="rubric-pts">10 pts</span></div>
+        <div class="rubric-item"><span>Understanding of the Contemporary Issue</span><span class="rubric-pts">5 pts</span></div>
+        <div class="rubric-item"><span>Relevance to the Intended Audience</span><span class="rubric-pts">5 pts</span></div>
+        <div class="rubric-item"><span>Completeness and Accuracy of Responses</span><span class="rubric-pts">5 pts</span></div>
+      </div>
+    </div>
+
+    <div class="rubric-card">
+      <div class="rubric-card-head">
+        <span class="rubric-card-name">G. Persuasive Biblical and Homiletical Worksheet (5%)</span>
+        <span class="rubric-total">25 pts total</span>
+      </div>
+      <div class="rubric-items">
+        <div class="rubric-item"><span>Biblical and Theological Support</span><span class="rubric-pts">10 pts</span></div>
+        <div class="rubric-item"><span>Development of Persuasive Strategy</span><span class="rubric-pts">5 pts</span></div>
+        <div class="rubric-item"><span>Sermon Development and Organization</span><span class="rubric-pts">5 pts</span></div>
+        <div class="rubric-item"><span>Completeness and Accuracy of Responses</span><span class="rubric-pts">5 pts</span></div>
+      </div>
+    </div>
+
+    <div class="rubric-card">
+      <div class="rubric-card-head">
+        <span class="rubric-card-name">H. Persuasive Sermon Outline Worksheet (5%)</span>
+        <span class="rubric-total">25 pts total</span>
+      </div>
+      <div class="rubric-items">
+        <div class="rubric-item"><span>Proposition and Purpose</span><span class="rubric-pts">5 pts</span></div>
+        <div class="rubric-item"><span>Organization and Flow</span><span class="rubric-pts">10 pts</span></div>
+        <div class="rubric-item"><span>Persuasive Strategy</span><span class="rubric-pts">5 pts</span></div>
+        <div class="rubric-item"><span>Application and Call for Response</span><span class="rubric-pts">5 pts</span></div>
+      </div>
+    </div>
+
+    <div class="rubric-card">
+      <div class="rubric-card-head">
+        <span class="rubric-card-name">I. Persuasive Sermon Delivery (20%)</span>
+        <span class="rubric-total">100 pts total</span>
+      </div>
+      <div class="rubric-items">
+        <div class="rubric-item"><span>Faithfulness to Scripture</span><span class="rubric-pts">20 pts</span></div>
+        <div class="rubric-item"><span>Audience Awareness</span><span class="rubric-pts">15 pts</span></div>
+        <div class="rubric-item"><span>Effectiveness of Persuasive Strategy</span><span class="rubric-pts">20 pts</span></div>
+        <div class="rubric-item"><span>Clarity of Proposition</span><span class="rubric-pts">10 pts</span></div>
+        <div class="rubric-item"><span>Organization and Structure</span><span class="rubric-pts">10 pts</span></div>
+        <div class="rubric-item"><span>Application and Call for Response</span><span class="rubric-pts">10 pts</span></div>
+        <div class="rubric-item"><span>Delivery and Communication Skills</span><span class="rubric-pts">10 pts</span></div>
+        <div class="rubric-item"><span>Audience Engagement</span><span class="rubric-pts">5 pts</span></div>
+      </div>
+    </div>
+
+    <div class="rubric-card">
+      <div class="rubric-card-head">
+        <span class="rubric-card-name">J. Participation and Sermon Evaluations (10%)</span>
+        <span class="rubric-total"></span>
+      </div>
+      <div class="rubric-items">
+        <div class="rubric-item"><span>Attendance and Preparation</span><span class="rubric-pts">30%</span></div>
+        <div class="rubric-item"><span>Participation in Discussions and Workshops</span><span class="rubric-pts">20%</span></div>
+        <div class="rubric-item"><span>Completion of Peer Evaluations</span><span class="rubric-pts">30%</span></div>
+        <div class="rubric-item"><span>Quality of Feedback Provided</span><span class="rubric-pts">20%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSE OUTLINE -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-tag">Outline</span>
+      <h2 class="section-title">Course Outline</h2>
+    </div>
+
+    <!-- Module I -->
+    <div class="module">
+      <span class="module-title">Module I — Review of Expository Preaching</span>
+      <ul class="session-list">
+        <li class="session-item">
+          <span class="session-num">Session 1</span>
+          <span class="session-title">Foundations, History, and the Theological Mandate of Expository Preaching</span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 2</span>
+          <span class="session-title">Methodology, Preparation, and Character</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Module II -->
+    <div class="module">
+      <span class="module-title">Module II — Preaching Parables</span>
+      <ul class="session-list">
+        <li class="session-item">
+          <span class="session-num">Session 3</span>
+          <span class="session-title">Interpreting Parables for Preaching</span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 4</span>
+          <span class="session-title">Understanding the Nature and Structure of Parables for Preaching</span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 5</span>
+          <span class="session-title">Preaching the Theology of Jesus' Parables</span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 6</span>
+          <span class="session-title">Preaching Parables Through Middle Eastern Eyes</span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 7</span>
+          <span class="session-title">Preaching Parables as Jesus Told Them</span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 8</span>
+          <span class="session-title">Designing Sermons that Follow the Movement of Parables</span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 9</span>
+          <span class="session-title">Preaching Parables Through Strategic Sermon Moves
+            <span class="session-note">Workshop: Bring completed Parables Exegetical Worksheet</span>
+          </span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 10</span>
+          <span class="session-title">Preaching Parables as Transformational Events
+            <span class="session-note">Workshop: Bring completed Parables Homiletical Worksheet</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Module III -->
+    <div class="module">
+      <span class="module-title">Module III — Parable Preaching Lab</span>
+      <ul class="session-list">
+        <li class="session-item lab">
+          <span class="session-num">Lab A</span>
+          <span class="session-title">Preaching Lab — Session A
+            <span class="session-note">Submission Due: Parables Preaching Outline Worksheet &amp; Sermon Manuscript</span>
+          </span>
+        </li>
+        <li class="session-item lab"><span class="session-num">Lab B</span><span class="session-title">Preaching Lab — Session B</span></li>
+        <li class="session-item lab"><span class="session-num">Lab C</span><span class="session-title">Preaching Lab — Session C</span></li>
+        <li class="session-item lab"><span class="session-num">Lab D</span><span class="session-title">Preaching Lab — Session D</span></li>
+        <li class="session-item lab"><span class="session-num">Lab E</span><span class="session-title">Preaching Lab — Session E</span></li>
+        <li class="session-item lab"><span class="session-num">Lab F</span><span class="session-title">Preaching Lab — Session F</span></li>
+      </ul>
+    </div>
+
+    <!-- Module IV -->
+    <div class="module">
+      <span class="module-title">Module IV — Persuasive Preaching</span>
+      <ul class="session-list">
+        <li class="session-item">
+          <span class="session-num">Session 11</span>
+          <span class="session-title">Building the Bridge Between Scripture and Contemporary Issues</span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 12</span>
+          <span class="session-title">Choosing the Right Sermon Structure for Contemporary Issues</span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 13</span>
+          <span class="session-title">Preaching Prophetically to Contemporary Issues</span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 14</span>
+          <span class="session-title">Preaching Controversial Issues with Wisdom and Grace</span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 15</span>
+          <span class="session-title">Preaching Hope in a Time of Mental and Emotional Distress
+            <span class="session-note">Workshop: Bring completed Persuasive Issue Analysis Worksheet</span>
+          </span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 16</span>
+          <span class="session-title">Preaching in the Age of Artificial Intelligence
+            <span class="session-note">Workshop: Bring completed Persuasive Biblical and Homiletical Worksheet</span>
+          </span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 17</span>
+          <span class="session-title">Finding Your Voice in Persuasive Preaching</span>
+        </li>
+        <li class="session-item">
+          <span class="session-num">Session 18</span>
+          <span class="session-title">The Character of the Persuasive Preacher</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Module V -->
+    <div class="module">
+      <span class="module-title">Module V — Persuasive Preaching Lab</span>
+      <ul class="session-list">
+        <li class="session-item lab">
+          <span class="session-num">Lab A</span>
+          <span class="session-title">Preaching Lab — Session A
+            <span class="session-note">Submission Due: Persuasive Sermon Outline Worksheet &amp; Sermon Manuscript</span>
+          </span>
+        </li>
+        <li class="session-item lab"><span class="session-num">Lab B</span><span class="session-title">Preaching Lab — Session B</span></li>
+        <li class="session-item lab"><span class="session-num">Lab C</span><span class="session-title">Preaching Lab — Session C</span></li>
+        <li class="session-item lab"><span class="session-num">Lab D</span><span class="session-title">Preaching Lab — Session D</span></li>
+        <li class="session-item lab"><span class="session-num">Lab E</span><span class="session-title">Preaching Lab — Session E</span></li>
+        <li class="session-item lab"><span class="session-num">Lab F</span><span class="session-title">Preaching Lab — Session F</span></li>
+      </ul>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  International Graduate School of Leadership &nbsp;·&nbsp; LDS 670 – Advance Preaching &nbsp;·&nbsp; Dr. Bong Baylon, DMin
+</footer>
+
+</body>
+</html>
