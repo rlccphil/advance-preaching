@@ -27,6 +27,7 @@
       line-height: 1.7;
     }
 
+    /* ── HEADER ── */
     .site-header {
       background: var(--navy);
       color: var(--white);
@@ -82,13 +83,17 @@
     }
     .meta-value { font-size: 14px; color: rgba(255,255,255,0.9); }
 
+    /* ── LAYOUT ── */
     .page-body {
       max-width: 900px;
       margin: 0 auto;
       padding: 0 24px 80px;
     }
 
-    .section { margin-top: 52px; }
+    /* ── SECTIONS ── */
+    .section {
+      margin-top: 52px;
+    }
 
     .section-header {
       display: flex;
@@ -118,6 +123,7 @@
       color: var(--navy);
     }
 
+    /* ── OVERVIEW ── */
     .overview-text {
       font-family: 'EB Garamond', serif;
       font-size: 1.08rem;
@@ -125,6 +131,7 @@
       line-height: 1.8;
     }
 
+    /* ── OBJECTIVES ── */
     .obj-group { margin-bottom: 24px; }
     .obj-group-title {
       font-size: 11px;
@@ -134,7 +141,12 @@
       color: var(--gold);
       margin-bottom: 10px;
     }
-    .obj-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .obj-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
     .obj-list li {
       padding-left: 20px;
       position: relative;
@@ -149,6 +161,7 @@
       font-weight: 600;
     }
 
+    /* ── READINGS ── */
     .reading-block { margin-bottom: 20px; }
     .reading-type {
       font-size: 11px;
@@ -175,6 +188,7 @@
       line-height: 1.5;
     }
 
+    /* ── REQUIREMENTS ── */
     .req-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -222,19 +236,12 @@
       top: 2px;
     }
 
-    /* Reflection list */
-    .reflection-list { list-style: none; display: flex; flex-direction: column; gap: 4px; margin-top: 10px; }
-    .reflection-list li {
+    /* ── GRADING TABLE ── */
+    .grade-table {
+      width: 100%;
+      border-collapse: collapse;
       font-size: 14px;
-      padding: 7px 12px;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      color: #333;
     }
-    .reflection-list li strong { color: var(--navy); }
-
-    .grade-table { width: 100%; border-collapse: collapse; font-size: 14px; }
     .grade-table th {
       background: var(--navy);
       color: var(--white);
@@ -250,15 +257,17 @@
       border-bottom: 1px solid var(--border);
       color: #2a2a2a;
     }
-    .grade-table tr:nth-child(even) td { background: #f5f2ec; }
     .grade-table tr:last-child td {
       background: var(--gold-light);
       font-weight: 700;
       color: var(--navy);
       border-bottom: none;
     }
+    .grade-table tr:nth-child(even) td { background: #f5f2ec; }
+    .grade-table tr:last-child td { background: var(--gold-light); }
     .grade-table .weight { text-align: right; font-variant-numeric: tabular-nums; }
 
+    /* ── RUBRICS ── */
     .rubric-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -279,8 +288,17 @@
       font-size: 1.05rem;
       font-weight: 500;
     }
-    .rubric-total { font-size: 12px; color: var(--gold); font-weight: 600; }
-    .rubric-items { padding: 12px 18px; display: flex; flex-direction: column; gap: 6px; }
+    .rubric-total {
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .rubric-items {
+      padding: 12px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
     .rubric-item {
       display: flex;
       justify-content: space-between;
@@ -290,10 +308,16 @@
       border-bottom: 1px dashed var(--border);
     }
     .rubric-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .rubric-pts { font-weight: 600; color: var(--navy); white-space: nowrap; }
+    .rubric-pts {
+      font-weight: 600;
+      color: var(--navy);
+      white-space: nowrap;
+    }
 
-    /* Course Outline */
-    .module { margin-bottom: 28px; }
+    /* ── COURSE OUTLINE ── */
+    .module {
+      margin-bottom: 28px;
+    }
     .module-title {
       font-size: 10px;
       font-weight: 700;
@@ -308,12 +332,11 @@
     }
     .session-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
     .session-item {
-      display: grid;
-      grid-template-columns: 130px 1fr;
+      display: flex;
       gap: 12px;
-      align-items: start;
+      align-items: baseline;
       font-size: 14px;
-      padding: 10px 14px;
+      padding: 8px 14px;
       border-radius: 3px;
       background: var(--white);
       border: 1px solid var(--border);
@@ -322,59 +345,23 @@
       background: var(--gold-light);
       border-color: var(--gold);
     }
-    .session-meta { display: flex; flex-direction: column; }
     .session-num {
       font-weight: 700;
       color: var(--gold);
+      white-space: nowrap;
       font-size: 12px;
+      min-width: 70px;
     }
-    .session-date {
+    .session-title { color: #2a2a2a; }
+    .session-note {
+      display: block;
       font-size: 12px;
       color: var(--muted);
-      font-weight: 500;
-    }
-    .session-body { color: #2a2a2a; }
-    .session-topics { display: flex; flex-direction: column; gap: 2px; }
-    .session-topic { font-size: 14px; }
-    .session-topic + .session-topic { color: var(--muted); font-size: 13px; }
-    .session-badge {
-      display: inline-block;
-      margin-top: 5px;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--navy);
-      background: var(--gold-light);
-      border: 1px solid var(--gold);
-      padding: 2px 8px;
-      border-radius: 20px;
-    }
-    .session-badge.lab-badge {
-      color: var(--white);
-      background: var(--gold);
-      border-color: var(--gold);
+      margin-top: 3px;
+      font-style: italic;
     }
 
-    .workshop-box {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--navy);
-      border-radius: 3px;
-      padding: 12px 16px;
-      margin-top: 10px;
-      font-size: 13px;
-    }
-    .workshop-box-title {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .workshop-box ul { list-style: none; display: flex; flex-direction: column; gap: 3px; }
-    .workshop-box li { padding-left: 14px; position: relative; color: #333; }
-    .workshop-box li::before { content: '·'; position: absolute; left: 3px; color: var(--gold); font-size: 1.2em; line-height: 1.4; }
-
+    /* ── FOOTER ── */
     footer {
       background: var(--navy);
       color: rgba(255,255,255,0.45);
@@ -386,7 +373,6 @@
 
     @media (max-width: 600px) {
       .meta-bar { gap: 16px; }
-      .session-item { grid-template-columns: 1fr; }
       .req-card-header { flex-direction: column; }
       .rubric-card-head { flex-direction: column; align-items: flex-start; gap: 4px; }
     }
@@ -394,6 +380,7 @@
 </head>
 <body>
 
+<!-- HEADER -->
 <header class="site-header">
   <p class="school-name">International Graduate School of Leadership</p>
   <h1 class="course-title">LDS 670 – Advance Preaching</h1>
@@ -438,29 +425,29 @@
     <div class="obj-group">
       <p class="obj-group-title">Knowledge</p>
       <ul class="obj-list">
-        <li>Analyze audiences and plan effective preaching strategies appropriate to their needs and contexts.</li>
-        <li>Identify principles for making biblical messages relevant to contemporary audiences.</li>
-        <li>Apply sound exegetical and homiletical principles in preaching parables.</li>
-        <li>Explain the dynamics of persuasion and their application to preaching.</li>
-        <li>Evaluate contemporary issues from a biblical perspective and develop persuasive sermons addressing them.</li>
+        <li>Analyzed audiences and planned effective preaching strategies appropriate to their needs and contexts.</li>
+        <li>Identified principles for making biblical messages relevant to contemporary audiences.</li>
+        <li>Applied sound exegetical and homiletical principles in preaching parables.</li>
+        <li>Explained the dynamics of persuasion and their application to preaching.</li>
+        <li>Evaluated contemporary issues from a biblical perspective and developed persuasive sermons addressing them.</li>
       </ul>
     </div>
     <div class="obj-group">
       <p class="obj-group-title">Character</p>
       <ul class="obj-list">
-        <li>Demonstrate commitment to careful interpretation and communication of Scripture.</li>
-        <li>Demonstrate integrity as communicators who seek to model the truth they preach.</li>
-        <li>Demonstrate commitment to relevant preaching through thoughtful audience analysis.</li>
-        <li>Demonstrate commitment to preaching for life transformation rather than merely information transfer.</li>
+        <li>Demonstrated commitment to careful interpretation and communication of Scripture.</li>
+        <li>Demonstrated integrity as communicators who seek to model the truth they preach.</li>
+        <li>Demonstrated commitment to relevant preaching through thoughtful audience analysis.</li>
+        <li>Demonstrated commitment to preaching for life transformation rather than merely information transfer.</li>
       </ul>
     </div>
     <div class="obj-group">
       <p class="obj-group-title">Skills</p>
       <ul class="obj-list">
-        <li>Prepare and deliver biblically faithful sermons on the parables of Jesus.</li>
-        <li>Prepare and deliver persuasive sermons addressing contemporary issues from a biblical perspective.</li>
-        <li>Evaluate sermons using established criteria for parable and persuasive preaching.</li>
-        <li>Demonstrate increased confidence and effectiveness in sermon delivery.</li>
+        <li>Prepared and delivered biblically faithful sermons on the parables of Jesus.</li>
+        <li>Prepared and delivered persuasive sermons addressing contemporary issues from a biblical perspective.</li>
+        <li>Evaluated sermons using established criteria for parable and persuasive preaching.</li>
+        <li>Demonstrated increased confidence and effectiveness in sermon delivery.</li>
       </ul>
     </div>
   </section>
@@ -473,7 +460,7 @@
     </div>
     <div class="reading-block">
       <p class="reading-type">Required</p>
-      <p>Eighteen assigned articles available through Canvas. Students are expected to read all assigned articles before the scheduled class session.</p>
+      <p>Eighteen assigned articles available through Canvas. Students are expected to read all assigned articles before the scheduled class session. Approximately two articles will be assigned for each instructional week.</p>
     </div>
     <div class="reading-block">
       <p class="reading-type">Suggested</p>
@@ -499,20 +486,13 @@
         <span class="req-card-title">A. Reading Reflections</span>
         <span class="req-weight">20%</span>
       </div>
-      <p class="req-body">Students will read eighteen assigned articles and submit five reading reflections through Canvas. Each reflection should be approximately 300–500 words and address the following questions:</p>
+      <p class="req-body">Students will read eighteen assigned articles and submit nine reading reflections through Canvas (approximately one reflection for every two assigned articles). Each reflection should be approximately 300–500 words and address the following questions:</p>
       <ul class="req-list">
         <li>What is the most significant insight you gained from the readings?</li>
         <li>What idea challenged, confirmed, or expanded your understanding of preaching?</li>
         <li>How might these insights influence your own preaching ministry?</li>
       </ul>
-      <p style="margin-top:12px;font-size:13px;color:var(--muted);font-style:italic;">Reflections must be submitted before class. The five reflections correspond to the major instructional units:</p>
-      <ul class="reflection-list">
-        <li><strong>Reflection 1</strong> – Review of Expository Preaching</li>
-        <li><strong>Reflection 2</strong> – Preaching Parables (Sessions 2–3)</li>
-        <li><strong>Reflection 3</strong> – Preaching Parables (Sessions 4–5)</li>
-        <li><strong>Reflection 4</strong> – Persuasive Preaching (Sessions 9–10)</li>
-        <li><strong>Reflection 5</strong> – Persuasive Preaching (Sessions 11–12)</li>
-      </ul>
+      <p style="margin-top:10px;font-size:13px;color:var(--muted);font-style:italic;">Reflections must be submitted before class.</p>
     </div>
 
     <div class="req-card">
@@ -522,10 +502,10 @@
       </div>
       <p class="req-body">Each student will prepare and preach a sermon based on one of the parables of Jesus. Students will preach a 20–25 minute sermon during the Parable Preaching Lab.</p>
       <ul class="req-list">
-        <li>Parables Exegetical Worksheet (5%)</li>
-        <li>Parables Homiletical Worksheet (5%)</li>
-        <li>Parables Preaching Outline Worksheet (5%)</li>
-        <li>Parable Sermon Delivery (20%)</li>
+        <li>Parables Exegetical Worksheet</li>
+        <li>Parables Homiletical Worksheet</li>
+        <li>Parables Preaching Outline Worksheet</li>
+        <li>Parable Sermon Delivery</li>
       </ul>
     </div>
 
@@ -536,10 +516,10 @@
       </div>
       <p class="req-body">Each student will prepare and preach a persuasive sermon addressing a contemporary issue from a biblical perspective. Students will preach a 20–25 minute sermon during the Persuasive Preaching Lab.</p>
       <ul class="req-list">
-        <li>Persuasive Issue Analysis Worksheet (5%)</li>
-        <li>Persuasive Biblical and Homiletical Worksheet (5%)</li>
-        <li>Persuasive Sermon Outline Worksheet (5%)</li>
-        <li>Persuasive Sermon Delivery (20%)</li>
+        <li>Persuasive Issue Analysis Worksheet</li>
+        <li>Persuasive Biblical and Homiletical Worksheet</li>
+        <li>Persuasive Sermon Outline Worksheet</li>
+        <li>Persuasive Sermon Delivery</li>
       </ul>
     </div>
 
@@ -566,7 +546,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>Reading Reflections (5)</td><td class="weight">20%</td></tr>
+        <tr><td>Reading Reflections (9)</td><td class="weight">20%</td></tr>
         <tr><td>Parables Exegetical Worksheet</td><td class="weight">5%</td></tr>
         <tr><td>Parables Homiletical Worksheet</td><td class="weight">5%</td></tr>
         <tr><td>Parables Preaching Outline Worksheet</td><td class="weight">5%</td></tr>
@@ -591,7 +571,7 @@
     <div class="rubric-card">
       <div class="rubric-card-head">
         <span class="rubric-card-name">A. Reading Reflections (20%)</span>
-        <span class="rubric-total">10 pts each × 5</span>
+        <span class="rubric-total">10 pts each</span>
       </div>
       <div class="rubric-items">
         <div class="rubric-item"><span>Understanding of Readings</span><span class="rubric-pts">4 pts</span></div>
@@ -735,219 +715,94 @@
 
     <!-- Module I -->
     <div class="module">
-      <span class="module-title">Module I — Review of Expository Preaching</span>
+      <span class="module-title">Module 1 — Review of Expository Preaching</span>
       <ul class="session-list">
         <li class="session-item">
-          <div class="session-meta">
-            <span class="session-num">Session 1</span>
-            <span class="session-date">July 22</span>
-          </div>
-          <div class="session-body">
-            <div class="session-topics">
-              <span class="session-topic">Foundations, History, and the Theological Mandate of Expository Preaching</span>
-              <span class="session-topic">Methodology, Preparation, and Character</span>
-            </div>
-            <span class="session-badge">Reading Reflection 1 Due</span>
-          </div>
+          <span class="session-num">Session 1</span>
+          <span class="session-title">Review of Expository Preaching</span>
         </li>
       </ul>
     </div>
 
     <!-- Module II -->
     <div class="module">
-      <span class="module-title">Module II — Preaching Parables</span>
+      <span class="module-title">Module 2 — Preaching Parables</span>
       <ul class="session-list">
         <li class="session-item">
-          <div class="session-meta">
-            <span class="session-num">Session 2</span>
-            <span class="session-date">July 24</span>
-          </div>
-          <div class="session-body">
-            <div class="session-topics">
-              <span class="session-topic">Interpreting Parables for Preaching</span>
-              <span class="session-topic">Understanding the Nature and Structure of Parables for Preaching</span>
-            </div>
-          </div>
+          <span class="session-num">Session 2</span>
+          <span class="session-title">Interpreting Parables for Preaching</span>
         </li>
         <li class="session-item">
-          <div class="session-meta">
-            <span class="session-num">Session 3</span>
-            <span class="session-date">July 29</span>
-          </div>
-          <div class="session-body">
-            <div class="session-topics">
-              <span class="session-topic">Preaching the Theology of Jesus' Parables</span>
-              <span class="session-topic">Preaching Parables Through Middle Eastern Eyes</span>
-            </div>
-            <span class="session-badge">Reading Reflection 2 Due</span>
-          </div>
+          <span class="session-num">Session 3</span>
+          <span class="session-title">Preaching the Theology of Jesus' Parables</span>
         </li>
         <li class="session-item">
-          <div class="session-meta">
-            <span class="session-num">Session 4</span>
-            <span class="session-date">July 31</span>
-          </div>
-          <div class="session-body">
-            <div class="session-topics">
-              <span class="session-topic">Preaching Parables as Jesus Told Them</span>
-              <span class="session-topic">Designing Sermons that Follow the Movement of Parables</span>
-            </div>
-          </div>
+          <span class="session-num">Session 4</span>
+          <span class="session-title">Preaching Parables as Jesus Told Them</span>
         </li>
         <li class="session-item">
-          <div class="session-meta">
-            <span class="session-num">Session 5</span>
-            <span class="session-date">Aug 5</span>
-          </div>
-          <div class="session-body">
-            <div class="session-topics">
-              <span class="session-topic">Preaching Parables Through Strategic Sermon Moves</span>
-              <span class="session-topic">Preaching Parables as Transformational Events</span>
-            </div>
-            <span class="session-badge">Reading Reflection 3 Due</span>
-          </div>
+          <span class="session-num">Session 5</span>
+          <span class="session-title">Preaching Parables Through Strategic Sermon Moves</span>
         </li>
       </ul>
-      <div class="workshop-box" style="margin-top:10px;">
-        <p class="workshop-box-title">Workshop Requirements — Due Before Module III</p>
-        <ul>
-          <li>Parables Exegetical Worksheet</li>
-          <li>Parables Homiletical Worksheet</li>
-          <li>Parables Preaching Outline Worksheet</li>
-        </ul>
-      </div>
     </div>
 
     <!-- Module III -->
     <div class="module">
-      <span class="module-title">Module III — Parable Preaching Lab</span>
+      <span class="module-title">Module 3 — Parable Preaching Lab</span>
       <ul class="session-list">
         <li class="session-item lab">
-          <div class="session-meta">
-            <span class="session-num">Session 6</span>
-            <span class="session-date">Aug 7</span>
-          </div>
-          <div class="session-body">
-            <span class="session-topic">Parable Preaching Lab</span>
-          </div>
+          <span class="session-num">Lab A</span>
+          <span class="session-title">Preaching Lab — Session A
+            <span class="session-note">Submission Due: Parables Preaching Outline Worksheet &amp; Sermon Manuscript</span>
+          </span>
         </li>
-        <li class="session-item lab">
-          <div class="session-meta">
-            <span class="session-num">Session 7</span>
-            <span class="session-date">Aug 12</span>
-          </div>
-          <div class="session-body">
-            <span class="session-topic">Parable Preaching Lab</span>
-          </div>
-        </li>
-        <li class="session-item lab">
-          <div class="session-meta">
-            <span class="session-num">Session 8</span>
-            <span class="session-date">Aug 14</span>
-          </div>
-          <div class="session-body">
-            <span class="session-topic">Parable Preaching Lab</span>
-          </div>
-        </li>
+        <li class="session-item lab"><span class="session-num">Lab B</span><span class="session-title">Preaching Lab — Session B</span></li>
+        <li class="session-item lab"><span class="session-num">Lab C</span><span class="session-title">Preaching Lab — Session C</span></li>
+        <li class="session-item lab"><span class="session-num">Lab D</span><span class="session-title">Preaching Lab — Session D</span></li>
+        <li class="session-item lab"><span class="session-num">Lab E</span><span class="session-title">Preaching Lab — Session E</span></li>
+        <li class="session-item lab"><span class="session-num">Lab F</span><span class="session-title">Preaching Lab — Session F</span></li>
       </ul>
     </div>
 
     <!-- Module IV -->
     <div class="module">
-      <span class="module-title">Module IV — Persuasive Preaching</span>
+      <span class="module-title">Module 4 — Persuasive Preaching</span>
       <ul class="session-list">
         <li class="session-item">
-          <div class="session-meta">
-            <span class="session-num">Session 9</span>
-            <span class="session-date">Aug 26</span>
-          </div>
-          <div class="session-body">
-            <div class="session-topics">
-              <span class="session-topic">Building the Bridge Between Scripture and Contemporary Issues</span>
-              <span class="session-topic">Choosing the Right Sermon Structure for Contemporary Issues</span>
-            </div>
-          </div>
+          <span class="session-num">Session 9</span>
+          <span class="session-title">Building the Bridge Between Scripture and Contemporary Issues</span>
         </li>
         <li class="session-item">
-          <div class="session-meta">
-            <span class="session-num">Session 10</span>
-            <span class="session-date">Sept 2</span>
-          </div>
-          <div class="session-body">
-            <div class="session-topics">
-              <span class="session-topic">Preaching Prophetically to Contemporary Issues</span>
-              <span class="session-topic">Preaching Controversial Issues with Wisdom and Grace</span>
-            </div>
-            <span class="session-badge">Reading Reflection 4 Due</span>
-          </div>
+          <span class="session-num">Session 10</span>
+          <span class="session-title">Preaching Prophetically to Contemporary Issues</span>
         </li>
         <li class="session-item">
-          <div class="session-meta">
-            <span class="session-num">Session 11</span>
-            <span class="session-date">Sept 4</span>
-          </div>
-          <div class="session-body">
-            <div class="session-topics">
-              <span class="session-topic">Preaching Hope in a Time of Mental and Emotional Distress</span>
-              <span class="session-topic">Preaching in the Age of Artificial Intelligence</span>
-            </div>
-          </div>
+          <span class="session-num">Session 11</span>
+          <span class="session-title">Preaching Hope in a Time of Mental and Emotional Stress</span>
         </li>
         <li class="session-item">
-          <div class="session-meta">
-            <span class="session-num">Session 12</span>
-            <span class="session-date">Sept 9</span>
-          </div>
-          <div class="session-body">
-            <div class="session-topics">
-              <span class="session-topic">Finding Your Voice in Persuasive Preaching</span>
-              <span class="session-topic">The Character of the Persuasive Preacher</span>
-            </div>
-            <span class="session-badge">Reading Reflection 5 Due</span>
-          </div>
+          <span class="session-num">Session 12</span>
+          <span class="session-title">Finding Your Voice</span>
         </li>
       </ul>
-      <div class="workshop-box" style="margin-top:10px;">
-        <p class="workshop-box-title">Workshop Requirements — Due Before Module V</p>
-        <ul>
-          <li>Persuasive Issue Analysis Worksheet</li>
-          <li>Persuasive Biblical and Homiletical Worksheet</li>
-          <li>Persuasive Sermon Outline Worksheet</li>
-        </ul>
-      </div>
     </div>
 
     <!-- Module V -->
     <div class="module">
-      <span class="module-title">Module V — Persuasive Preaching Lab</span>
+      <span class="module-title">Module 5 — Persuasive Preaching Lab</span>
       <ul class="session-list">
         <li class="session-item lab">
-          <div class="session-meta">
-            <span class="session-num">Session 13</span>
-            <span class="session-date">Sept 11</span>
-          </div>
-          <div class="session-body">
-            <span class="session-topic">Persuasive Preaching Lab</span>
-          </div>
+          <span class="session-num">Lab A</span>
+          <span class="session-title">Preaching Lab — Session A
+            <span class="session-note">Submission Due: Persuasive Sermon Outline Worksheet &amp; Sermon Manuscript</span>
+          </span>
         </li>
-        <li class="session-item lab">
-          <div class="session-meta">
-            <span class="session-num">Session 14</span>
-            <span class="session-date">Sept 16</span>
-          </div>
-          <div class="session-body">
-            <span class="session-topic">Persuasive Preaching Lab</span>
-          </div>
-        </li>
-        <li class="session-item lab">
-          <div class="session-meta">
-            <span class="session-num">Session 15</span>
-            <span class="session-date">Sept 18</span>
-          </div>
-          <div class="session-body">
-            <span class="session-topic">Persuasive Preaching Lab</span>
-          </div>
-        </li>
+        <li class="session-item lab"><span class="session-num">Lab B</span><span class="session-title">Preaching Lab — Session B</span></li>
+        <li class="session-item lab"><span class="session-num">Lab C</span><span class="session-title">Preaching Lab — Session C</span></li>
+        <li class="session-item lab"><span class="session-num">Lab D</span><span class="session-title">Preaching Lab — Session D</span></li>
+        <li class="session-item lab"><span class="session-num">Lab E</span><span class="session-title">Preaching Lab — Session E</span></li>
+        <li class="session-item lab"><span class="session-num">Lab F</span><span class="session-title">Preaching Lab — Session F</span></li>
       </ul>
     </div>
 
